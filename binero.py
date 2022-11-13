@@ -63,13 +63,30 @@ def jeux(niveaux):
     while grille != grillecorrect:
         
         afficher(grille) # affichage de la grille 
+
         #demande a l'utilisateur dans quelle ligne, colonne, et le chiffre qu'il veux modifier
+
         modifLigne = int(input("dans quelle ligne voulez vous modifier: "+ "\n"))
+        #verifie si l'utilisateur a saisie un chiffre corect 
         while type(modifLigne) != int or modifLigne-1 > len(grille):
-            print("votre saisie est incorrect veuillez resaissir avec un chifre qui puisse ")
+            print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")
+            modifLigne = input(": ")
+
+
         modifColone = int(input("dans quelle colone voulez vous modifier: "+ "\n"))
+        #verifie si l'utilisateur a saisie un chiffre corect 
+        while type(modifLigne) != int or modifLigne-1 > len(grille):
+            print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")
+            modifLigne = input(": ")
+
+
         modifCar = int(input("voulez-vous placer un 0 ou un 1: "))
+        #verifie si l'utilisateur a saisie un chiffre corect 
+        while type(modifLigne) != int or modifLigne-1 > len(grille):
+            print("votre saisie est incorrect veuillez resaissir avec un chiffre correct soit 1 soit 0 ")
+            modifLigne = input(": ")
         
+
         
     
 def main():
