@@ -30,14 +30,14 @@ def menu():
 
 def afficher(tab):
     
-    pass
+    print(tab)
 
 def jeux(niveaux):
     
     ##conditions pour asigner la grille de jeux selon le niveaux 
     
     if niveaux == 1:
-        
+
         grille = [["*","*","*","*","*","1"], #grille de depart du niveaux 1
                ["*","0","*","*","0","*",],
                ["*","*","*","*","*","1"],
@@ -134,9 +134,9 @@ if __name__ == "__main__":
     
      
     
-    jeux = True #variable qui  permet la boucle de jeux principale
+    jeu = True #variable qui  permet la boucle de jeux principale
 
-    while jeux: #boucle de jeux principale
+    while jeu: #boucle de jeux principale
 
         m = main()
         if m != 1: #si l'utilisateur a jouer et n'a pas lu les regle alors on lui demande si il veux rejouer, si oui on continu si non on stop la boucle de jeux pincipale 
@@ -145,7 +145,7 @@ if __name__ == "__main__":
                 print("veuillez ressaisir avec le caractere 'o' ou le caractere 'n'")
                 fin = input(": ")
             if fin == "n":
-                jeux = False 
+                jeu = False 
 
 
 print("\n"+"Au revoir")
