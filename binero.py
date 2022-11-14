@@ -2,7 +2,7 @@
 """
 Created on Mon Oct 10 14:46:12 2022
 
-@author: julien gadotti
+@author: julien gadotti, Timeo
 """
 
 def menu():
@@ -29,10 +29,21 @@ def menu():
     return choix # retour le choix de l'utilisateur 
 
 def afficher(tab):
+    """fonction qui affiche correctement la grille 
+
+    Args:
+        tab (list): tab est la grille de jeux qui est une liste 
+
+    """
     
     print(tab)
 
 def jeux(niveaux):
+    """fonction du jeux qui affecte les grille en fonction du niveaux choisie et permet la modification
+
+    Args:
+        niveaux (int): correspond au niveux selectionner par le joueur
+    """
     
     ##conditions pour asigner la grille de jeux selon le niveaux 
     
@@ -92,6 +103,11 @@ def jeux(niveaux):
     print("BRAVO!!! tu a gagné le niveux" + niveaux)   
     
 def main():
+    """fonction principale qui redirige le joueur vers le menu(regle, but, jeux en fonction du niveaux ) qu'il selectionne dans la fonction menu
+
+    Returns:
+        int: retourn 1 si l'utilisateur ne jouer pas ou 2 pour savoir si il jouer 
+    """
     
     
     choix = menu() # variable qui renvoie a la fonctions menu() pour savoir ou l'utilisateur veux se rendre 
@@ -132,13 +148,14 @@ def main():
 if __name__ == "__main__":
     
     
-     
     
     jeu = True #variable qui  permet la boucle de jeux principale
 
     while jeu: #boucle de jeux principale
 
         m = main()
+        #grace au return de main on sait si le joueur jouer ou si il liser les regle ou le but du jeux 
+
         if m != 1: #si l'utilisateur a jouer et n'a pas lu les regle alors on lui demande si il veux rejouer, si oui on continu si non on stop la boucle de jeux pincipale 
             fin = input("voulez vous continuera jouer (o/n): ")
             while fin != "o" or fin != "n":
