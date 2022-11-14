@@ -88,7 +88,8 @@ def jeux(niveaux):
             modifLigne = int(input(": "))
         
         grille[modifLigne-1][modifColone-1] = modifCar #on efectue les modifications demander en enlevant 1 au ligne et au colonne carpython commence a 0
-        
+
+    print("BRAVO!!! tu a gagné le niveux" + niveaux)   
     
 def main():
     
@@ -139,9 +140,9 @@ if __name__ == "__main__":
 
         m = main()
         if m != 1: #si l'utilisateur a jouer et n'a pas lu les regle alors on lui demande si il veux rejouer, si oui on continu si non on stop la boucle de jeux pincipale 
-            fin = input("voulez vous continuer (o/n): ")
+            fin = input("voulez vous continuera jouer (o/n): ")
             while fin != "o" or fin != "n":
-                print("veuillez ressaisir avec le caractere o ou le caractere n")
+                print("veuillez ressaisir avec le caractere 'o' ou le caractere 'n'")
                 fin = input(": ")
             if fin == "n":
                 jeux = False 
