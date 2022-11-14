@@ -51,6 +51,7 @@ def jeux(niveaux):
                       ["1","0","1","0","1","0"],
                       ["1","1","0","0","1","0"],
                       ["0","0","1","1","0","1"]]
+
     elif niveaux == 2:
         grille = 2
         grillecorection = 2
@@ -70,23 +71,23 @@ def jeux(niveaux):
         #verifie si l'utilisateur a saisie un chiffre corect 
         while type(modifLigne) != int or modifLigne-1 > len(grille):
             print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")
-            modifLigne = input(": ")
+            modifLigne = int(input(": "))
 
 
         modifColone = int(input("dans quelle colone voulez vous modifier: "+ "\n"))
         #verifie si l'utilisateur a saisie un chiffre corect 
         while type(modifLigne) != int or modifLigne-1 > len(grille):
             print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")
-            modifLigne = input(": ")
+            modifLigne = int(input(": "))
 
 
         modifCar = int(input("voulez-vous placer un 0 ou un 1: "))
         #verifie si l'utilisateur a saisie un chiffre corect 
         while type(modifLigne) != int or modifLigne-1 > len(grille):
             print("votre saisie est incorrect veuillez resaissir avec un chiffre correct soit 1 soit 0 ")
-            modifLigne = input(": ")
+            modifLigne = int(input(": "))
         
-
+        grille[modifLigne-1][modifColone-1] = modifCar #on efectue les modifications demander en enlevant 1 au ligne et au colonne carpython commence a 0
         
     
 def main():
