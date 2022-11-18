@@ -76,7 +76,18 @@ def jeux(niveaux):
                   ["*","*","1","1","*","*","1","0","*","0"],
                   ["*","0","*","*","*","*","*","*","*","0"]]
 
-        grillecorection = [["1","1","0","0","1","1","0","1","0","0"],
+        grillecorrect = [["1","1","0","0","1","1","0","1","0","0"],
+                           ["0","0","1","1","0","1","0","1","0","1"],
+                           ["0","1","0","0","1","0","1","0","1","1"],
+                           ["1","1","0","0","1","0","1","1","0","0"],
+                           ["0","0","1","1","0","1","0","0","1","1"],
+                           ["1","0","1","0","1","0","0","1","0","1"],
+                           ["0","1","0","1","0","1","1","0","1","0"],
+                           ["0","1","1","0","1","0","0","1","0","1"],
+                           ["1","0","1","1","0","0","1","0","1","0"],
+                           ["1","0","0","1","0","1","1","0","1","0"]]
+
+        grillecorrect1 = [["*","1","0","0","1","1","0","1","0","0"],
                            ["0","0","1","1","0","1","0","1","0","1"],
                            ["0","1","0","0","1","0","1","0","1","1"],
                            ["1","1","0","0","1","0","1","1","0","0"],
@@ -99,7 +110,7 @@ def jeux(niveaux):
                   ["*","*","*","1","*","*","*","1","*","*"],
                   ["*","*","0","*","*","*","*","*","1","*"]]
 
-        grillecorrection =[["0","0","1","0","1","1","0","0","1","1"],
+        grillecorrect =[["0","0","1","0","1","1","0","0","1","1"],
                            ["1","0","0","1","0","1","1","0","0","1"],
                            ["1","1","0","1","1","0","0","1","0","0"],
                            ["0","1","1","0","0","1","0","1","1","0"],
@@ -113,7 +124,7 @@ def jeux(niveaux):
     #boucle tant que je joueur na pas fini sa parti soit disant dis tant que la grille de jeux n'est pas egal a la grille correct 
     while grille != grillecorrect:
         
-        afficher(grille) # affichage de la grille 
+        afficher(grillecorrect1) # affichage de la grille 
 
         #demande a l'utilisateur dans quelle ligne, colonne, et le chiffre qu'il veux modifier
 
@@ -137,9 +148,9 @@ def jeux(niveaux):
             print("votre saisie est incorrect veuillez resaissir avec un chiffre correct soit 1 soit 0 ")
             modifLigne = int(input(": "))
         
-        grille[modifLigne-1][modifColone-1] = modifCar #on efectue les modifications demander en enlevant 1 au ligne et au colonne carpython commence a 0
+        grille[modifLigne-1][modifColone-1] = str(modifCar) #on efectue les modifications demander en enlevant 1 au ligne et au colonne carpython commence a 0
 
-    print("BRAVO!!! tu a gagné le niveux" + niveaux)   
+    print("BRAVO!!! tu a gagné le niveux")   
     
 def main():
     """fonction principale qui redirige le joueur vers le menu(regle, but, jeux en fonction du niveaux ) qu'il selectionne dans la fonction menu
