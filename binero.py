@@ -36,7 +36,8 @@ def afficher(tab):
 
     """
     
-    print(tab)
+    for i in tab:
+        print(i)
 
 def jeux(niveaux):
     """fonction du jeux qui affecte les grille en fonction du niveaux choisie et permet la modification
