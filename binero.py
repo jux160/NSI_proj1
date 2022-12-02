@@ -187,8 +187,6 @@ def main():
         
 if __name__ == "__main__":
     
-    
-    
     jeu = True #variable qui  permet la boucle de jeux principale
 
     while jeu: #boucle de jeux principale
