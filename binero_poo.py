@@ -218,7 +218,7 @@ while jeux:
                 
     elif choix == 3:
         #renvoie le joueur vers le niveau 1
-        grille= binero(1)
+        grille = binero(1)
         grille.jeux()        
         
     elif choix == 4:
