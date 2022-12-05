@@ -1,9 +1,9 @@
-class grille():
+class binero():
     
     def __init__(self,difficulte=1):
         """methode constructor qui defini le plateau de jeux et le plateau de correction en fonction duint renseigner 
 
-           plateau et une liste de liste contenant la grille du jeux les caractere pouvant être modofier sont des chaine
+           plateau et une liste de liste contenant la binero du jeux les caractere pouvant être modofier sont des chaine
            de caractere et les entiés ne peuvent pas être modifier 
         Args:
             difficulte (int): difficulte du niveaux, vaut 1 par default 
@@ -80,14 +80,14 @@ class grille():
 
             ligne = int(input("dans quelle ligne voulez vous modifier: "+ "\n"))
                 #verifie si l'utilisateur a saisie un chiffre corect et lui demande de ressaisir si ce n'est pas le cas             
-            while ligne-1 > len(grille):
+            while ligne-1 > len(self.plateau):
                 print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")
                 ligne = int(input(": "))
 
 
             colonne = int(input("dans quelle colone voulez vous modifier: "+ "\n"))
                 #verifie si l'utilisateur a saisie un chiffre corect et lui demande de ressaisir si ce n'est pas le cas             
-            while colonne-1 > len(grille):
+            while colonne-1 > len(self.plateau):
                 print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")
                 colonne = int(input(": "))
 
@@ -127,12 +127,95 @@ class grille():
         """
         fonctions du derouler d'une partie
         """
-        while grille.correction() != True
-            grille.affichage()
-            grille.modif()
+        while binero.correction() != True:
+            binero.affichage()
+            binero.modif()
 
         return False
-     
+    def menu():
+        """fonction qui demande a l'utilisateur ou il souhaite se rendre entre les regle,le but du jeux ou une partie entre 3 niveaux 
+
+        Returns:
+            int: nombre que l'utilisateur a saisie
+        """
+
+        choix = int(input("selectionné se que vous voulez: "+"\n"+  #demande le choix de l'utilisateur 
+            "1.regle du jeux"+"\n"+
+            "2.but du jeux"+"\n"+
+            "3.niveaux facile"+"\n"+
+            "4.niveaux moyen"+"\n"+
+            "5.niveux difficile"+"\n"
+            "saisisez avec 1, 2, 3, 4 ou 5: "))
+        while choix != 1 and choix != 2 and choix != 3 and choix != 4 and choix != 5: #verifie que l'utilisateur a bien selectionner 1 2 3 4 ou 5
+            choix = int(input("veuillez ressaisir: ")) # demande a l'utilisateur de ressaisir si sa premier saisie est fausse 
+        return choix 
+
+
     def main():
+        """fonctions principale
+
+        Returns:
+            int: retourne 1 pour savoir que l'utilisateur ne jouer pas mais qu'il lisait soit les régle soit le but du jeux
+        """
+
+        choix = binero.menu() # variable qui renvoie a la fonctions menu() pour savoir ou l'utilisateur veux se rendre 
         
+        #conditions pour savoir se que l'utilisateur a saisie et le renvoyer vers le bon chemin 
+        if choix == 1:
+            #print les regle du jeux 
+            print("\n" + "dans se jeux il y a que 3 régle :" + "\n" + 
+                "-il faut qu'il y est autant de 0 que de 1 sur une meme ligne et sur une meme colonne" + "\n" + 
+                "-il ne peux pas y avoir plus de deux 0 ou deux 1 a la suite en horizontale et en verticale" + "\n" + 
+                "- il ne peux pas avoir deux ligne ou colonne identique"  + "\n")
+            input("entrer" + "\n") # attend que l'utilisateur tape une touche pour continuer
+            
+            return 1 #retourn 1 pour savoir que l'utilisateur lisez les regle ou le but du jeux pour dans la boucle du jeux 
+        
+        elif choix == 2:
+            #print le but du jeux 
+            print("\n" + "le but du jeux est de completer entierement la grille sans faire d'erreur" + "\n")
+            input("entrer" + "\n") # attend que l'utilisateur tape une touche pour continuer
+            
+            return 1 #retourn 1 pour savoir que l'utilisateur lisez les regle ou le but du jeux pour dans la boucle du jeux 
+        
+        elif choix == 3:
+            #renvoie le joueur vers le niveau 1
+            binero.__init__(1)
+            binero.jeux()
+            return 2 #retourn 2 pour savoir que l'utilisateur jouer pour la boucle du jeux 
+        
+        elif choix == 4:
+            #renvoie le joueur vers le niveau 2
+            binero.__init__(2)
+            binero.jeux()
+            return 2 #retourn 2 pour savoir que l'utilisateur jouer pour la boucle du jeux 
+        
+        elif choix == 5:
+            #renvoie le joueur vers le niveau 3
+            binero.__init__(3)
+            binero.jeux()
+            return 2 #retourn 2 pour savoir que l'utilisateur jouer pour la boucle du jeux 
+
+"""
+if __name__ == "__main__":
     
+    jeu = True #variable qui  permet la boucle de jeux principale
+
+    while jeu: #boucle de jeux principale
+
+        m = binero.main()
+        #grace au return de main on sait si le joueur jouer ou si il liser les regle ou le but du jeux 
+
+        if m != 1: #si l'utilisateur a jouer et n'a pas lu les regle alors on lui demande si il veux rejouer, si oui on continu si non on stop la boucle de jeux pincipale 
+            fin = input("voulez vous continuera jouer (o/n): ")
+            while not(fin == "o" or fin == "n"):
+                print("veuillez ressaisir avec le caractere 'o' ou le caractere 'n'")
+                fin = input(": ")
+            if fin == "n":
+                jeu = False 
+
+
+    print("\n"+"Au revoir")
+    """
+f = binero(1)
+print(f.plateau)
