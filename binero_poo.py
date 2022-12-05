@@ -234,4 +234,5 @@ while jeux:
     #conditions pour savoir si le joueur etait en train de jouer ou pas, si il jouait alors on lui demande si il veux rejouer 
     if choix == 3 or choix == 4 or choix == 5:
         continuer = input("voulez vous rejouer ou pas (oui/ non : ")
-        while continuer 
+        while continuer:
+        pass 
