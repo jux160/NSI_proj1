@@ -9,7 +9,7 @@ class binero():
             difficulte (int): difficulte du niveaux, vaut 1 par default 
         """
         
-        if difficulte == 1:
+        if difficulte == 1: 
             self.plateau =  [["*","*","*","*","*",1], #grille de depart du niveaux 1
                              ["*",0,"*","*",0,"*",],
                              ["*","*","*","*","*",1],
@@ -97,8 +97,9 @@ class binero():
                 print("votre saisie dans la grille est inpossible vous ne pouvez pas modofier les element present de base ")
 
             car = input("voulez-vous placer un 0 ou un 1: ")
+            print(type(car))
             #verifie si l'utilisateur a saisie un chiffre corect et lui demande de ressaisir si ce n'est pas le cas 
-            while car != 0 or car != 1:
+            while car != "0" or car != "1":
                 print("votre saisie est incorrect veuillez resaissir avec un chiffre correct soit 1 soit 0 ")
                 car = input(": ")
             
@@ -112,7 +113,10 @@ class binero():
         affiche le plateau de jeux 
         """
         for i in self.plateau:
-            print(i)
+            for k in i:
+                print(k, end=" ")
+            print()
+
 
     
     def correction(self):
@@ -127,9 +131,9 @@ class binero():
         """
         fonctions du derouler d'une partie
         """
-        while binero.correction() != True:
-            binero.affichage()
-            binero.modif()
+        while self.correction() != True:
+            self.affichage()
+            self.modif()
 
         return False
     def menu():
