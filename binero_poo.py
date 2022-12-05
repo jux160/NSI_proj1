@@ -198,6 +198,40 @@ class binero():
 
 
 jeux = True        
-choix = binero.menu()
 
 while jeux:
+
+    choix = binero.menu()
+
+        #conditions pour savoir se que l'utilisateur a saisie et le renvoyer vers le bon chemin 
+    if choix == 1:
+        #print les regle du jeux 
+        print("\n" + "dans se jeux il y a que 3 régle :" + "\n" + 
+            "-il faut qu'il y est autant de 0 que de 1 sur une meme ligne et sur une meme colonne" + "\n" + 
+            "-il ne peux pas y avoir plus de deux 0 ou deux 1 a la suite en horizontale et en verticale" + "\n" +                 "- il ne peux pas avoir deux ligne ou colonne identique"  + "\n")
+        input("entrer" + "\n") # attend que l'utilisateur tape une touche pour continuer
+        
+    elif choix == 2:
+        #print le but du jeux 
+        print("\n" + "le but du jeux est de completer entierement la grille sans faire d'erreur" + "\n")
+        input("entrer" + "\n") # attend que l'utilisateur tape une touche pour continuer
+                
+    elif choix == 3:
+        #renvoie le joueur vers le niveau 1
+        grille= binero(1)
+        grille.jeux()        
+        
+    elif choix == 4:
+        #renvoie le joueur vers le niveau 2
+        grille= binero(1)
+        grille.jeux()   
+
+    elif choix == 5:
+        #renvoie le joueur vers le niveau 3
+        grille= binero(1)
+        grille.jeux()   
+
+    #conditions pour savoir si le joueur etait en train de jouer ou pas, si il jouait alors on lui demande si il veux rejouer 
+    if choix == 3 or choix == 4 or choix == 5:
+        continuer = input("voulez vous rejouer ou pas (oui/ non : ")
+        while continuer 
