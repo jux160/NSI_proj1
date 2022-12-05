@@ -196,26 +196,8 @@ class binero():
             binero.jeux()
             return 2 #retourn 2 pour savoir que l'utilisateur jouer pour la boucle du jeux 
 
-"""
-if __name__ == "__main__":
-    
-    jeu = True #variable qui  permet la boucle de jeux principale
 
-    while jeu: #boucle de jeux principale
+jeux = True        
+choix = binero.menu()
 
-        m = binero.main()
-        #grace au return de main on sait si le joueur jouer ou si il liser les regle ou le but du jeux 
-
-        if m != 1: #si l'utilisateur a jouer et n'a pas lu les regle alors on lui demande si il veux rejouer, si oui on continu si non on stop la boucle de jeux pincipale 
-            fin = input("voulez vous continuera jouer (o/n): ")
-            while not(fin == "o" or fin == "n"):
-                print("veuillez ressaisir avec le caractere 'o' ou le caractere 'n'")
-                fin = input(": ")
-            if fin == "n":
-                jeu = False 
-
-
-    print("\n"+"Au revoir")
-    """
-f = binero(1)
-print(f.plateau)
+while jeux:
