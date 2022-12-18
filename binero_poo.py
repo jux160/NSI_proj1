@@ -81,7 +81,7 @@ class binero():
         colonne = self.entre()
 
         #on verifie si l'endroit de la modification n'es pas un int dans qu'elle cas cela signifie qu'on ne peux pas le modifier 
-        while type(self.plateau[ligne-1][colonne-1]) == int:
+        while type(self.plateau[ligne-1][colonne-1]) == int:  # type: ignore
             print("vous ne pouvais pas modifier se caractere il esr present de base sur la grille")
             #on redemande la ligne et la colonne
             print("ressaisisez votre ligne: ")
@@ -99,7 +99,7 @@ class binero():
             car = input(": ")
 
         #on modifie par le nombre corespondant en str pour pouvoir le remodifier par la suite si besoin
-        self.plateau[ligne-1][colonne-1] = car
+        self.plateau[ligne-1][colonne-1] = car  # type: ignore
 
 
     def entre(self):
@@ -124,7 +124,7 @@ class binero():
                     entre = int(entre) 
 
              #verifie si l'utilisateur a saisie un chiffre etant dans le plateau de jeux et lui demande de ressaisir si ce n'est pas le cas             
-            if entre-1 > len(self.plateau):
+            if entre-1 > len(self.plateau):  # type: ignore
                 print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")
                 entre = (input(": ")) #ligne repasse en str pour pouvoir recommencer le try except pour verifier la saisie fait est bonne 
 
@@ -187,7 +187,8 @@ while jeux:
         #print les regle du jeux 
         print("\n" + "dans se jeux il y a que 3 régle :" + "\n" + 
             "-il faut qu'il y est autant de 0 que de 1 sur une meme ligne et sur une meme colonne" + "\n" + 
-            "-il ne peux pas y avoir plus de deux 0 ou deux 1 a la suite en horizontale et en verticale" + "\n" +                 "- il ne peux pas avoir deux ligne ou colonne identique"  + "\n")
+            "-il ne peux pas y avoir plus de deux 0 ou deux 1 a la suite en horizontale et en verticale" + "\n" +                 
+            "- il ne peux pas avoir deux ligne ou colonne identique"  + "\n")
         input("entrer" + "\n") # attend que l'utilisateur tape une touche pour continuer
         
     elif choix == 2:
