@@ -165,7 +165,6 @@ class binero:
 
 a = binero(3)
 print(a.__str__())
-"""
 if __name__ == "__main__":
 
     jeux = True
@@ -211,4 +210,3 @@ if __name__ == "__main__":
             #conditions qui permet d'arreter la boucle principale en passant jeux a False 
             if continuer == "non":
                 jeux == False
-            """
