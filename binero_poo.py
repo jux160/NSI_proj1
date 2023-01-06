@@ -11,15 +11,16 @@ class binero:
         if difficulte == 1: 
             # generation du plateu de jeux et du plateau de corections
             self.plateau = self.convertion("niveaux/simple.txt")[0]
-            self.plateau_correct = self.convertion("niveaux/simple.txt")[1]
+            self.plateau_correcte = self.convertion("niveaux/simple.txt")[1]
             
         elif difficulte == 2:
             # on repete la meme chose pour le niveaux 2
             self.plateau = self.convertion("niveaux/moyen.txt")[0]
-            self.plateau_correct = self.convertion("niveaux/moyen.txt")[1]
+            self.plateau_correcte = self.convertion("niveaux/moyen.txt")[1]
+
         elif difficulte == 3:
             self.plateau = self.convertion("niveaux/difficile.txt")[0]
-            self.plateau_correct = self.convertion("niveaux/difficile.txt")[1]
+            self.plateau_correcte = self.convertion("niveaux/difficile.txt")[1]
     def convertion(self, fichier):
 
         """methode qui convertie le fichier du niveaux en liste de liste 
@@ -71,7 +72,7 @@ class binero:
 
         #on verifie si l'endroit de la modification n'es pas un int dans qu'elle cas cela signifie qu'on ne peux pas le modifier 
         while type(self.plateau[ligne-1][colonne-1]) == int:  # type: ignore
-            print("vous ne pouvais pas modifier se caractere il esr present de base sur la grille")
+            print("vous ne pouvais pas modifier se caractere est present de base sur la grille")
             #on redemande la ligne et la colonne
             print("ressaisisez votre ligne: ")
             ligne = self.entre()
@@ -141,7 +142,7 @@ class binero:
         fonctions du derouler d'une partie
         """
         while self.correction() != True:
-            self.affichage()
+            print(self.__str__())
             self.entre_modif()
         print("bravo vous avez gagné cette partie")
         return False
