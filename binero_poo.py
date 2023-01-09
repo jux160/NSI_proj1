@@ -164,8 +164,6 @@ class binero:
             choix = int(input("veuillez ressaisir: ")) # demande a l'utilisateur de ressaisir si sa premier saisie est fausse 
         return choix 
 
-a = binero(3)
-print(a.__str__())
 if __name__ == "__main__":
 
     jeux = True
