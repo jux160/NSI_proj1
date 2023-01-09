@@ -16,16 +16,16 @@ def menu():
 
     """
     
-    choix = int(input("selectionné se que vous voulez: "+"\n"+  #demande le choix de l'utilisateur 
+    choix = input("selectionné se que vous voulez: "+"\n"+  #demande le choix de l'utilisateur 
                       "1.regle du jeux"+"\n"+
                       "2.but du jeux"+"\n"+
                       "3.niveaux facile"+"\n"+
                       "4.niveaux moyen"+"\n"+
                       "5.niveux difficile"+"\n"
-                      "saisisez avec 1, 2, 3, 4 ou 5: "))
-    while choix != 1 and choix != 2 and choix != 3 and choix != 4 and choix != 5: #verifie que l'utilisateur a bien selectionner 1 2 3 4 ou 5
-        choix = int(input("veuillez ressaisir: ")) # demande a l'utilisateur de ressaisir si sa premier saisie est fausse 
-        
+                      "saisisez avec 1, 2, 3, 4 ou 5: ")
+    while choix != "1" and choix != "2" and choix != "3" and choix != "4" and choix != "5": #verifie que l'utilisateur a bien selectionner 1 2 3 4 ou 5
+        choix = input("veuillez ressaisir: ")# demande a l'utilisateur de ressaisir si sa premier saisie est fausse 
+    choix = int(choix) #on convertit choix en int 
     return choix # retour le choix de l'utilisateur 
 
 def afficher(tab):
@@ -36,8 +36,8 @@ def afficher(tab):
 
     """
     
-    for i in tab:
-        print(i)
+    for ligne in tab:
+        print(ligne)
 
 def jeux(niveaux):
     """fonction du jeux qui affecte les grille en fonction du niveaux choisie et permet la modification
@@ -118,7 +118,7 @@ def jeux(niveaux):
 
         #demande a l'utilisateur dans quelle ligne, colonne, et le chiffre qu'il veux modifier
 
-        modifLigne = int(input("dans quelle ligne voulez vous modifier: "+ "\n"))
+        modifLigne = input("dans quelle ligne voulez vous modifier: "+ "\n")
         #verifie si l'utilisateur a saisie un chiffre corect 
         while type(modifLigne) != int or modifLigne-1 > len(grille):
             print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")

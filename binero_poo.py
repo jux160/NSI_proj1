@@ -49,7 +49,7 @@ class binero:
         #definition du plateau de jeux de correction
         for ligne in range(taille):
             line = f.readline()
-            line = line.replace("\n", "")
+            line = line.replace("\n", "") 
             correction.append(list(line))
         for ligne in range(len(grille)):
             for car in range(len(grille)):
