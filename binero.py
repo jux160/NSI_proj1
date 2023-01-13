@@ -35,9 +35,12 @@ def afficher(tab):
         tab (list): tab est la grille de jeux qui est une liste 
 
     """
-    
+    chaine =""
     for ligne in tab:
-        print(ligne)
+        for car in ligne:
+            chaine += car+" "
+        print(chaine)
+        chaine = ""
 
 def jeux(niveaux):
     """fonction du jeux qui affecte les grille en fonction du niveaux choisie et permet la modification
