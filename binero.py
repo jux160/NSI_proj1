@@ -120,16 +120,26 @@ def jeux(niveaux):
 
         modifLigne = input("dans quelle ligne voulez vous modifier: "+ "\n")
         #verifie si l'utilisateur a saisie un chiffre corect 
-        while type(modifLigne) != int or modifLigne-1 > len(grille):
-            print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")
-            modifLigne = int(input(": "))
+        while type(modifLigne) != int:
+            try:
+                int(modifLigne)
+            except:
+                print("votre saisie est incorrect veuilez saisir un chiffre")
+                modifLigne = input(": ")
+            else:
+                modifLigne = int(modifLigne)
 
 
         modifColone = int(input("dans quelle colone voulez vous modifier: "+ "\n"))
         #verifie si l'utilisateur a saisie un chiffre corect 
-        while type(modifLigne) != int or modifLigne-1 > len(grille):
-            print("votre saisie est incorrect veuillez resaissir avec un chiffre correct ")
-            modifLigne = int(input(": "))
+        while type(modifColone) != int:
+            try:
+                int(modifColone)
+            except:
+                print("votre saisie est incorrect veuilez saisir un chiffre")
+                modifColone = input(": ")
+            else:
+                modifColone = int(modifColone)
 
 
         modifCar = int(input("voulez-vous placer un 0 ou un 1: "))
