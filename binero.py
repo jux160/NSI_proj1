@@ -38,9 +38,52 @@ def afficher(tab):
     chaine =""
     for ligne in tab:
         for car in ligne:
-            chaine += car+" "
+            chaine += str(car)+" "
         print(chaine)
         chaine = ""
+
+def modifie():
+    """fonction demandant les modification que l'utilisateur veux faire puis 
+    verifie si elle sont correct
+
+    Returns:
+        list: liste de la ligne la collone et du caractere a ajouter 
+    """
+    modifLigne = input("dans quelle ligne voulez vous modifier: "+ "\n")
+        #verifie si l'utilisateur a saisie un chiffre corect 
+    while type(modifLigne) != int:
+        try:
+            int(modifLigne)
+        except:
+            print("votre saisie est incorrect veuilez saisir un chiffre")
+            modifLigne = input(": ")
+        else:
+            modifLigne = int(modifLigne)
+
+    modifColone = input("dans quelle colone voulez vous modifier: "+ "\n")
+        #verifie si l'utilisateur a saisie un chiffre corect 
+    while type(modifColone) != int:
+        try:
+            int(modifColone)
+        except:
+            print("votre saisie est incorrect veuilez saisir un chiffre")
+            modifColone = input(": ")
+        else:
+            modifColone = int(modifColone)
+
+
+    modifCar = input("voulez-vous placer un 0 ou un 1: ")
+        #verifie si l'utilisateur a saisie un chiffre corect 
+    while type(modifCar) != int:
+        try:
+            int(modifCar)
+        except:
+            print("votre saisie est incorrect veuilez saisir un chiffre")
+            modifCar = input(": ")
+        else:
+            modifCar = int(modifCar)
+    
+    return [modifLigne,modifColone,modifCar]
 
 def jeux(niveaux):
     """fonction du jeux qui affecte les grille en fonction du niveaux choisie et permet la modification
@@ -60,36 +103,36 @@ def jeux(niveaux):
                ["*","*","*",0,"*","*"],
                [0,"*",1,"*","*","*"]]
     
-        grillecorrect = [["0","1","0","0","1","1"], #grille de correction du niveaux 1
-                      ["1","0","1","1","0","0"],
-                      ["0","1","0","1","0","1"],
-                      ["1","0","1","0","1","0"],
-                      ["1","1","0","0","1","0"],
-                      ["0","0","1","1","0","1"]]
+        grillecorrect = [["0","1","0","0","1",1], #grille de correction du niveaux 1
+                      ["1",0,"1","1",0,"0"],
+                      ["0","1","0","1","0",1],
+                      ["1",0,1,"0",1,"0"],
+                      ["1","1","0",0,"1","0"],
+                      [0,"0",1,"1","0","1"]]
 
     elif niveaux == 2:
 
-        grille = [["1","1","*","*","*","1","*","*","*","*"], #grille de depart du niveaux 2
-                  ["*","*","*","*","*","*","*","*","0","*"],
-                  ["0","1","*","0","*","*","1","*","*","*"],
-                  ["1","*","*","0","*","*","*","*","*","*"],
-                  ["*","*","1","*","*","*","0","*","1","1"],
-                  ["*","*","*","*","*","*","0","*","*","*"],
-                  ["0","*","*","*","*","*","*","*","*","0"],
-                  ["*","*","1","*","*","0","*","*","*","*"],
-                  ["*","*","1","1","*","*","1","0","*","0"],
-                  ["*","0","*","*","*","*","*","*","*","0"]]
+        grille = [[1,1,"*","*","*",1,"*","*","*","*"], #grille de depart du niveaux 2
+                  ["*","*","*","*","*","*","*","*",0,"*"],
+                  [0,1,"*",0,"*","*",1,"*","*","*"],
+                  [1,"*","*",0,"*","*","*","*","*","*"],
+                  ["*","*",1,"*","*","*",0,"*",1,1],
+                  ["*","*","*","*","*","*",0,"*","*","*"],
+                  [0,"*","*","*","*","*","*","*","*",0],
+                  ["*","*",1,"*","*",0,"*","*","*","*"],
+                  ["*","*",1,1,"*","*",1,0,"*",0],
+                  ["*",0,"*","*","*","*","*","*","*",0]]
 
-        grillecorrect = [["1","1","0","0","1","1","0","1","0","0"],
-                           ["0","0","1","1","0","1","0","1","0","1"],  #grille de correction du niveaux 2
-                           ["0","1","0","0","1","0","1","0","1","1"],
-                           ["1","1","0","0","1","0","1","1","0","0"],
-                           ["0","0","1","1","0","1","0","0","1","1"],
-                           ["1","0","1","0","1","0","0","1","0","1"],
-                           ["0","1","0","1","0","1","1","0","1","0"],
-                           ["0","1","1","0","1","0","0","1","0","1"],
-                           ["1","0","1","1","0","0","1","0","1","0"],
-                           ["1","0","0","1","0","1","1","0","1","0"]]
+        grillecorrect = [[1,1,"0","0","1",1,"0","1","0","0"],
+                           ["0","0","1","1","0","1","0","1",0,"1"],  #grille de correction du niveaux 2
+                           [0,1,"0",0,"1","0",1,"0","1","1"],
+                           [1,"1","0",0,"1","0","1","1","0","0"],
+                           ["0","0",1,"1","0","1",0,"0",1,1],
+                           ["1","0","1","0","1","0",0,"1","0","1"],
+                           [0,"1","0","1","0","1","1","0","1",0],
+                           ["0","1",1,"0","1",0,"0","1","0","1"],
+                           ["1","0",1,1,"0","0",1,0,"1",0],
+                           ["1",0,"0","1","0","1","1","0","1",0]]
     
     elif niveaux == 3:
         grille = [["*","0","*","*","1","1","*","*","*","1"],
@@ -120,43 +163,23 @@ def jeux(niveaux):
         afficher(grille) # affichage de la grille 
 
         #demande a l'utilisateur dans quelle ligne, colonne, et le chiffre qu'il veux modifier
+        modification = modifie()
+        #recupere les valeurs de la liste renvoyer par l'utilisateur 
+        ligne = modification[0]
+        collonne = modification[1]
+        car = modification[2]
 
-        modifLigne = input("dans quelle ligne voulez vous modifier: "+ "\n")
-        #verifie si l'utilisateur a saisie un chiffre corect 
-        while type(modifLigne) != int:
-            try:
-                int(modifLigne)
-            except:
-                print("votre saisie est incorrect veuilez saisir un chiffre")
-                modifLigne = input(": ")
-            else:
-                modifLigne = int(modifLigne)
+        #verifie si le caractere qui a ete demander par l'utilisateur d'etre modifie ne correspond pas a un int dans la grille qui correcspond au chiffre present de base et donc non modifiable 
+        while type(grille[ligne-1][collonne-1]) == int :
+            print("vous voulez modifier un chiffre present de base sur la grille de jeux donc vous ne pouvez pas saisir ici") 
+            #demande a l'utilisateur dans quelle ligne, colonne, et le chiffre qu'il veux modifier
+            modification = modifie()
+            #recupere les valeurs de la liste renvoyer par l'utilisateur 
+            ligne = modification[0]
+            collonne = modification[1]
+            car = modification[2]
 
-
-        modifColone = input("dans quelle colone voulez vous modifier: "+ "\n")
-        #verifie si l'utilisateur a saisie un chiffre corect 
-        while type(modifColone) != int:
-            try:
-                int(modifColone)
-            except:
-                print("votre saisie est incorrect veuilez saisir un chiffre")
-                modifColone = input(": ")
-            else:
-                modifColone = int(modifColone)
-
-
-        modifCar = input("voulez-vous placer un 0 ou un 1: ")
-        #verifie si l'utilisateur a saisie un chiffre corect 
-        while type(modifCar) != int:
-            try:
-                int(modifCar)
-            except:
-                print("votre saisie est incorrect veuilez saisir un chiffre")
-                modifCar = input(": ")
-            else:
-                modifCar = int(modifCar)
-        
-        grille[modifLigne-1][modifColone-1] = str(modifCar) #on efectue les modifications demander en enlevant 1 au ligne et au colonne carpython commence a 0
+        grille[ligne-1][collonne-1] = str(car) #on efectue les modifications demander en enlevant 1 au ligne et au colonne carpython commence a 0
 
     print("BRAVO!!! tu a gagné le niveux")   
     
@@ -202,7 +225,7 @@ def main():
         #renvoie le joueur vers le niveau 3
         jeux(3)
         return 2 #retourn 2 pour savoir que l'utilisateur jouer pour la boucle du jeux 
-        
+
 if __name__ == "__main__":
     
     jeu = True #variable qui  permet la boucle de jeux principale
